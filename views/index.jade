@@ -1,29 +1,37 @@
-<!DOCTYPE html>
+extends layout
+
+block content
 <html>
-
-<body onload="startTime()">
-
-<h2>आएंगे तो योगी ही</h2>
-
-<div id="txt"></div>
-
-<script>
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-function checkTime(i) {
-  if (i < 15) {i = "0" + i};  // add zero in front of numbers < 15
-  return i;
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
-</script>
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<h1>आएंगे तो योगी ही</h1>
+
+<div class="loader"></div>
 
 </body>
 </html>
